@@ -4,6 +4,7 @@ A full-stack, production-grade learning platform that pairs students with an int
 
 > Built end-to-end: Next.js 14 (App Router) + Tailwind + Framer Motion on the frontend, FastAPI + SQLAlchemy + PostgreSQL on the backend, OpenAI / Gemini for the AI layer, and JWT auth throughout.
 
+Live site: https://lumen-ai-gilt.vercel.app/
 ---
 
 ## Features
