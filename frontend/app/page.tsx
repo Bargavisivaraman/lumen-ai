@@ -88,7 +88,7 @@ export default function Landing() {
               className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-xs text-ink-200 mb-8"
             >
               <Sparkles className="h-3.5 w-3.5 text-accent" />
-              <span>Beta · powered by GPT-4 class models</span>
+              <span>Open source · built for students</span>
             </motion.div>
 
             <motion.h1
@@ -133,13 +133,13 @@ export default function Landing() {
               className="mt-10 flex items-center gap-6 text-xs text-ink-400"
             >
               <div>
-                <div className="text-ink-50 font-display text-2xl">10k+</div>
-                <div>students learning</div>
+                <div className="text-ink-50 font-display text-2xl">Free</div>
+                <div>forever for students</div>
               </div>
               <div className="h-8 w-px bg-white/10" />
               <div>
-                <div className="text-ink-50 font-display text-2xl">94%</div>
-                <div>say it improved their study habits</div>
+                <div className="text-ink-50 font-display text-2xl">Open</div>
+                <div>source · self-hostable</div>
               </div>
             </motion.div>
           </div>
