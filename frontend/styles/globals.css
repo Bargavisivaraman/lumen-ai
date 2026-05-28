@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Geist", "Inter", system-ui, sans-serif;
+  --font-display: "Instrument Serif", "Times New Roman", serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+}
+
+@layer base {
+  html {
+    @apply bg-ink-950 text-ink-100;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(124, 92, 255, 0.12), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 90% 100%, rgba(200, 255, 94, 0.06), transparent 60%),
+      #070605;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: rgba(200, 255, 94, 0.3);
+    color: #fff;
+  }
+
+  /* subtle grain overlay applied to body */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+}
+
+@layer components {
+  .glass {
+    @apply relative bg-white/[0.03] border border-white/[0.06] backdrop-blur-xl;
+  }
+
+  .glass-strong {
+    @apply relative bg-white/[0.05] border border-white/[0.08] backdrop-blur-2xl;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-ink-950 transition-all hover:bg-accent-soft hover:shadow-glow active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.02] px-5 py-2.5 text-sm font-medium text-ink-100 transition-all hover:bg-white/[0.06] hover:border-white/20 active:scale-[0.98];
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-ink-100 placeholder:text-ink-400 focus:border-accent/50 focus:outline-none focus:ring-2 focus:ring-accent/20 transition;
+  }
+
+  .label {
+    @apply mb-1.5 block text-xs font-medium uppercase tracking-wider text-ink-300;
+  }
+
+  .card {
+    @apply glass rounded-2xl p-6;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-medium text-ink-200;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #ffffff 20%, #c8ff5e 60%, #7c5cff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .shimmer-bg {
+    background: linear-gradient(
+      110deg,
+      rgba(255, 255, 255, 0.03) 8%,
+      rgba(255, 255, 255, 0.09) 18%,
+      rgba(255, 255, 255, 0.03) 33%
+    );
+    background-size: 200% 100%;
+    @apply animate-shimmer;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Markdown content inside chat bubbles */
+.prose-chat {
+  @apply text-[15px] leading-relaxed;
+}
+.prose-chat p { @apply mb-3 last:mb-0; }
+.prose-chat ul { @apply list-disc pl-5 mb-3 space-y-1; }
+.prose-chat ol { @apply list-decimal pl-5 mb-3 space-y-1; }
+.prose-chat code {
+  @apply rounded bg-ink-800 px-1.5 py-0.5 text-[13px] text-accent font-mono;
+}
+.prose-chat pre {
+  @apply rounded-xl bg-ink-900 border border-white/5 p-4 my-3 overflow-x-auto text-[13px];
+}
+.prose-chat pre code {
+  @apply bg-transparent p-0 text-ink-100;
+}
+.prose-chat h1, .prose-chat h2, .prose-chat h3 {
+  @apply font-display text-ink-50 mt-4 mb-2;
+}
+.prose-chat h1 { @apply text-xl; }
+.prose-chat h2 { @apply text-lg; }
+.prose-chat h3 { @apply text-base; }
+.prose-chat a { @apply text-accent underline underline-offset-2; }
+.prose-chat strong { @apply text-ink-50 font-semibold; }
